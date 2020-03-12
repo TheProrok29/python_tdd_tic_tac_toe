@@ -27,6 +27,11 @@ class TicTacToeSpec(unittest.TestCase):
         self.tic_tac_toe.play(1, 1)
         self.assertEqual('O', self.tic_tac_toe.next_player())
 
+    def test_last_turn_was_o_then_next_player_is_x(self):
+        self.tic_tac_toe.play(1, 1)
+        self.tic_tac_toe.play(1, 2)
+        self.assertEqual('X', self.tic_tac_toe.next_player())
+
 
 if __name__ == '__main__':
     unittest.main()
