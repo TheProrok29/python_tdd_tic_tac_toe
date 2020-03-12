@@ -8,6 +8,11 @@ class TicTacToeSpec(unittest.TestCase):
         with self.assertRaises(Exception):
             tic_tac_toe.play(5, 2)
 
+    def test_when_y_outside_board_then_error(self):
+        tic_tac_toe = TicTacToe()
+        with self.assertRaises(Exception):
+            tic_tac_toe.play(2, 5)
+
 
 if __name__ == '__main__':
     unittest.main()
