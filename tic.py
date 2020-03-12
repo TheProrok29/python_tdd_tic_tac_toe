@@ -4,12 +4,18 @@ class TicTacToe:
                       ['O', 'O', 'O'],
                       ['O', 'O', 'O']]
 
-    def play(self, x: int, y: int) -> None:
-        if x < 1 or x > 3:
-            raise Exception('X outside the board')
-        elif y < 1 or y > 3:
-            raise Exception('Y outside the board')
+    @staticmethod
+    def _check_axis(axis: int) -> None:
+        if axis < 1 or axis > 3:
+            raise Exception('Outside the board')
+
+    def _set_box(self, x: int, y: int) -> None:
         if self.board[x - 1][y - 1] == 'O':
             self.board[x - 1][y - 1] = 'X'
         else:
             raise Exception('Field is occupied')
+
+    def play(self, x: int, y: int) -> None:
+        self._check_axis(x)
+        self._check_axis(y)
+        self._set_box(x, y)
