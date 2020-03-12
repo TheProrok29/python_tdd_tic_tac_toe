@@ -27,6 +27,10 @@ class TicTacToeSpec(unittest.TestCase):
         self.tic_tac_toe.play(1, 1)
         self.assertEqual('O', self.tic_tac_toe.next_player())
 
+    def test_play_no_winner(self):
+        actual: str = self.tic_tac_toe.play(1, 1)
+        self.assertEqual('No winner', actual)
+
 
 if __name__ == '__main__':
     unittest.main()
