@@ -6,6 +6,7 @@ class TicTacToe:
         self.board: List[List[str]] = [['O', 'O', 'O'],
                                        ['O', 'O', 'O'],
                                        ['O', 'O', 'O']]
+        self.last_player: str = 'O'
 
     @staticmethod
     def _check_axis(axis: int) -> None:
@@ -18,11 +19,14 @@ class TicTacToe:
         else:
             raise Exception('Field is occupied')
 
-    @staticmethod
-    def next_player() -> str:
-        return 'X'
+    def next_player(self) -> str:
+        if self.last_player == 'X':
+            return 'O'
+        else:
+            return 'X'
 
     def play(self, x: int, y: int) -> None:
         self._check_axis(x)
         self._check_axis(y)
         self._set_box(x, y)
+        self.last_player = self.next_player()
