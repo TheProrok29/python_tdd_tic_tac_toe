@@ -1,8 +1,11 @@
+from typing import List
+
+
 class TicTacToe:
     def __init__(self):
-        self.board = [['O', 'O', 'O'],
-                      ['O', 'O', 'O'],
-                      ['O', 'O', 'O']]
+        self.board: List[List[str]] = [['O', 'O', 'O'],
+                                       ['O', 'O', 'O'],
+                                       ['O', 'O', 'O']]
 
     @staticmethod
     def _check_axis(axis: int) -> None:
@@ -14,6 +17,10 @@ class TicTacToe:
             self.board[x - 1][y - 1] = 'X'
         else:
             raise Exception('Field is occupied')
+
+    @staticmethod
+    def next_player() -> str:
+        return 'X'
 
     def play(self, x: int, y: int) -> None:
         self._check_axis(x)
