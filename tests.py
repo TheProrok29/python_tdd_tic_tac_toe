@@ -7,31 +7,31 @@ class TicTacToeSpec(unittest.TestCase):
     def setUp(self) -> None:
         self.tic_tac_toe = TicTacToe()
 
-    def test_when_x_outside_board_then_error(self):
+    def test_when_x_outside_board_then_error(self) -> None:
         with self.assertRaises(Exception):
             self.tic_tac_toe.play(5, 2)
 
-    def test_when_y_outside_board_then_error(self):
+    def test_when_y_outside_board_then_error(self) -> None:
         with self.assertRaises(Exception):
             self.tic_tac_toe.play(2, 5)
 
-    def test_when_field_is_occupied_then_error(self):
+    def test_when_field_is_occupied_then_error(self) -> None:
         self.tic_tac_toe.play(2, 2)
         with self.assertRaises(Exception):
             self.tic_tac_toe.play(2, 2)
 
-    def test_first_turn_when_next_player_is_x(self):
+    def test_first_turn_when_next_player_is_x(self) -> None:
         self.assertEqual('X', self.tic_tac_toe.next_player())
 
-    def test_last_turn_was_x_then_next_player_is_o(self):
+    def test_last_turn_was_x_then_next_player_is_o(self) -> None:
         self.tic_tac_toe.play(1, 1)
         self.assertEqual('O', self.tic_tac_toe.next_player())
 
-    def test_play_no_winner(self):
+    def test_play_no_winner(self) -> None:
         actual: str = self.tic_tac_toe.play(1, 1)
         self.assertEqual('No winner!', actual)
 
-    def test_whole_horizontal_line_then_winner(self):
+    def test_whole_horizontal_line_then_winner(self) -> None:
         self.tic_tac_toe.play(1, 1)  # X
         self.tic_tac_toe.play(1, 2)  # O
         self.tic_tac_toe.play(2, 1)  # X
