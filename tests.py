@@ -29,7 +29,7 @@ class TicTacToeSpec(unittest.TestCase):
 
     def test_play_no_winner(self):
         actual: str = self.tic_tac_toe.play(1, 1)
-        self.assertEqual('No winner', actual)
+        self.assertEqual('No winner!', actual)
 
 
 if __name__ == '__main__':
