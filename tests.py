@@ -39,7 +39,7 @@ class TicTacToeSpec(unittest.TestCase):
         actual: str = self.tic_tac_toe.play(3, 1)  # X
         self.assertEqual('The winner is X', actual)
 
-    def test_whole_vertical_line_then_winner(self):
+    def test_whole_vertical_line_then_winner(self) -> None:
         self.tic_tac_toe.play(2, 1)  # X
         self.tic_tac_toe.play(1, 1)  # O
         self.tic_tac_toe.play(3, 1)  # X
@@ -48,7 +48,7 @@ class TicTacToeSpec(unittest.TestCase):
         actual: str = self.tic_tac_toe.play(1, 3)  # O
         self.assertEqual('The winner is O', actual)
 
-    def test_top_bottom_diagonal_line_then_winner(self):
+    def test_top_bottom_diagonal_line_then_winner(self) -> None:
         self.tic_tac_toe.play(1, 1)  # X
         self.tic_tac_toe.play(3, 1)  # O
         self.tic_tac_toe.play(2, 2)  # X
@@ -56,7 +56,7 @@ class TicTacToeSpec(unittest.TestCase):
         actual: str = self.tic_tac_toe.play(3, 3)  # X
         self.assertEqual('The winner is X', actual)
 
-    def test_bottom_top_diagonal_line_then_winner(self):
+    def test_bottom_top_diagonal_line_then_winner(self) -> None:
         self.tic_tac_toe.play(1, 1)  # X
         self.tic_tac_toe.play(1, 3)  # O
         self.tic_tac_toe.play(3, 2)  # X
@@ -64,6 +64,18 @@ class TicTacToeSpec(unittest.TestCase):
         self.tic_tac_toe.play(3, 3)  # X
         actual: str = self.tic_tac_toe.play(3, 1)  # O
         self.assertEqual('The winner is O', actual)
+
+    def test_all_boxes_are_fill_then_no_winner(self) -> None:
+        self.tic_tac_toe.play(1, 1)  # X
+        self.tic_tac_toe.play(1, 2)  # O
+        self.tic_tac_toe.play(1, 3)  # X
+        self.tic_tac_toe.play(2, 1)  # O
+        self.tic_tac_toe.play(2, 3)  # X
+        self.tic_tac_toe.play(2, 2)  # O
+        self.tic_tac_toe.play(3, 1)  # X
+        self.tic_tac_toe.play(3, 3)  # O
+        actual: str = self.tic_tac_toe.play(3, 2)
+        self.assertEqual('The result is draw!', actual)
 
 
 if __name__ == '__main__':
