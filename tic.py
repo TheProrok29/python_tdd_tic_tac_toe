@@ -32,7 +32,9 @@ class TicTacToe:
                 return True
             elif self.board[index][0] + self.board[index][1] + self.board[index][2] == self.last_player * size:
                 return True
-            return False
+        if self.board[0][0] + self.board[1][1] + self.board[2][2] == self.last_player * size:
+            return True
+        return False
 
     def _draw_board(self):
         [print(row) for row in self.board]
