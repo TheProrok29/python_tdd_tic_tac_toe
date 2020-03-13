@@ -27,14 +27,15 @@ class TicTacToe:
 
     def _is_winner(self) -> bool:
         size: int = len(self.board)
+        player_total: str = self.last_player * size
         for index in range(size):
-            if self.board[0][index] + self.board[1][index] + self.board[2][index] == self.last_player * size:
+            if self.board[0][index] + self.board[1][index] + self.board[2][index] == player_total:
                 return True
-            elif self.board[index][0] + self.board[index][1] + self.board[index][2] == self.last_player * size:
+            elif self.board[index][0] + self.board[index][1] + self.board[index][2] == player_total:
                 return True
-        if self.board[0][0] + self.board[1][1] + self.board[2][2] == self.last_player * size:
+        if self.board[0][0] + self.board[1][1] + self.board[2][2] == player_total:
             return True
-        elif self.board[0][2] + self.board[1][1] + self.board[2][0] == self.last_player * size:
+        elif self.board[0][2] + self.board[1][1] + self.board[2][0] == player_total:
             return True
         return False
 
