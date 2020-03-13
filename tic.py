@@ -30,6 +30,8 @@ class TicTacToe:
         for index in range(size):
             if self.board[0][index] + self.board[1][index] + self.board[2][index] == self.last_player * size:
                 return True
+            elif self.board[index][0] + self.board[index][1] + self.board[index][2] == self.last_player * size:
+                return True
             return False
 
     def play(self, x: int, y: int) -> str:
