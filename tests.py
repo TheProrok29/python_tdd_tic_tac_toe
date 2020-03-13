@@ -39,6 +39,15 @@ class TicTacToeSpec(unittest.TestCase):
         actual: str = self.tic_tac_toe.play(3, 1)  # X
         self.assertEqual('The winner is X', actual)
 
+    def test_whole_vertical_line_then_winner(self):
+        self.tic_tac_toe.play(2, 1)  # X
+        self.tic_tac_toe.play(1, 1)  # O
+        self.tic_tac_toe.play(3, 1)  # X
+        self.tic_tac_toe.play(1, 2)  # O
+        self.tic_tac_toe.play(2, 2)  # X
+        actual: str = self.tic_tac_toe.play(1, 3)  # O
+        self.assertEqual('The winner is O', actual)
+
 
 if __name__ == '__main__':
     unittest.main()

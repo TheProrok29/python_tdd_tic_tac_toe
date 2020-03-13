@@ -3,9 +3,9 @@ from typing import List
 
 class TicTacToe:
     def __init__(self):
-        self.board: List[List[str]] = [['O', 'O', 'O'],
-                                       ['O', 'O', 'O'],
-                                       ['O', 'O', 'O']]
+        self.board: List[List[str]] = [['-', '-', '-'],
+                                       ['-', '-', '-'],
+                                       ['-', '-', '-']]
         self.last_player: str = 'O'
 
     @staticmethod
@@ -14,7 +14,7 @@ class TicTacToe:
             raise Exception('Outside the board')
 
     def _set_box(self, x: int, y: int) -> None:
-        if self.board[x - 1][y - 1] == 'O':
+        if self.board[x - 1][y - 1] == '-':
             self.board[x - 1][y - 1] = 'X'
         else:
             raise Exception('Field is occupied')
