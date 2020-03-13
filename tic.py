@@ -34,11 +34,16 @@ class TicTacToe:
                 return True
             return False
 
+    def _draw_board(self):
+        [print(row) for row in self.board]
+        print('\n')
+
     def play(self, x: int, y: int) -> str:
         self._check_axis(x)
         self._check_axis(y)
         self.last_player = self.next_player()
         self._set_box(x, y)
+        self._draw_board()
         if self._is_winner():
             return f'The winner is {self.last_player}'
         return 'No winner!'
