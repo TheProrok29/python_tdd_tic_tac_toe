@@ -25,21 +25,23 @@ class TicTacToe:
         else:
             return 'X'
 
-    def _is_winner(self) -> bool:
+    def _is_winner(self, x: int, y: int) -> bool:
         size: int = len(self.board)
         player_total: str = self.last_player * size
+        horizontal = vertical = diagonal_t_b = diagonal_b_t = ''
         for index in range(size):
-            if self.board[0][index] + self.board[1][index] + self.board[2][index] == player_total:
-                return True
-            elif self.board[index][0] + self.board[index][1] + self.board[index][2] == player_total:
-                return True
-        if self.board[0][0] + self.board[1][1] + self.board[2][2] == player_total:
-            return True
-        elif self.board[0][2] + self.board[1][1] + self.board[2][0] == player_total:
+            horizontal += self.board[index][x - 1]
+            vertical += self.board[y - 1][index]
+            diagonal_t_b += self.board[index][index]
+            diagonal_b_t += self.board[index][size - index - 1]
+        if (horizontal == player_total or
+                vertical == player_total or
+                diagonal_t_b == player_total or
+                diagonal_b_t == player_total):
             return True
         return False
 
-    def _draw_board(self):
+    def _draw_board(self) -> None:
         [print(row) for row in self.board]
         print('\n')
 
@@ -49,6 +51,6 @@ class TicTacToe:
         self.last_player = self.next_player()
         self._set_box(x, y)
         self._draw_board()
-        if self._is_winner():
+        if self._is_winner(x, y):
             return f'The winner is {self.last_player}'
         return 'No winner!'
