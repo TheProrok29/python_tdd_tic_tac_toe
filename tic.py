@@ -14,8 +14,8 @@ class TicTacToe:
             raise Exception('Outside the board')
 
     def _set_box(self, x: int, y: int) -> None:
-        if self.board[x - 1][y - 1] == '-':
-            self.board[x - 1][y - 1] = 'X'
+        if self.board[y - 1][x - 1] == '-':
+            self.board[y - 1][x - 1] = self.last_player
         else:
             raise Exception('Field is occupied')
 
