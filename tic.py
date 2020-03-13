@@ -45,6 +45,13 @@ class TicTacToe:
         [print(row) for row in self.board]
         print('\n')
 
+    def _is_board_full(self) -> bool:
+        for x in range(len(self.board)):
+            for y in range(len(self.board)):
+                if self.board[x][y] == '-':
+                    return False
+        return True
+
     def play(self, x: int, y: int) -> str:
         self._check_axis(x)
         self._check_axis(y)
@@ -53,4 +60,6 @@ class TicTacToe:
         self._draw_board()
         if self._is_winner(x, y):
             return f'The winner is {self.last_player}'
+        elif self._is_board_full():
+            return 'The result is draw!'
         return 'No winner!'
