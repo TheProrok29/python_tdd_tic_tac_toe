@@ -4,6 +4,8 @@ python:
 install:
   - "pip install codecov"
   - "pip install pymongo"
+services:
+  - mongodb
 script:
   - coverage run tests_tic_tac_toe_spec.py
 after_success:
