@@ -3,7 +3,8 @@ python:
   - "3.7"
 install:
   - "pip install codecov"
+  - "pip install pymongo"
 script:
-  - coverage run tests.py
+  - coverage run tests_tic_tac_toe_spec.py
 after_success:
   - codecov

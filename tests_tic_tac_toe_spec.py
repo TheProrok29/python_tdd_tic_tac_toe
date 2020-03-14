@@ -1,6 +1,7 @@
 import unittest
 
 from tic import TicTacToe
+from mongo_config import TicTacToeCollection
 
 
 class TicTacToeSpec(unittest.TestCase):
@@ -76,6 +77,14 @@ class TicTacToeSpec(unittest.TestCase):
         self.tic_tac_toe.play(3, 3)  # O
         actual: str = self.tic_tac_toe.play(3, 2)
         self.assertEqual('The result is draw!', actual)
+
+    def test_when_crated_then_mongo_has_db_name_tic_tac_toe(self):
+        collection = TicTacToeCollection()
+        self.assertEqual('tic_tac_toe', collection.get_db_name())
+
+    def test_when_crated_then_mongo_collection_name_game(self):
+        collection = TicTacToeCollection()
+        self.assertEqual('game', collection.get_db_collection_name())
 
 
 if __name__ == '__main__':
