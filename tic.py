@@ -63,3 +63,4 @@ class TicTacToe:
         elif self._is_board_full():
             return 'The result is draw!'
         return 'No winner!'
+
